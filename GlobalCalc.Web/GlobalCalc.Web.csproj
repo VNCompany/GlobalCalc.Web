@@ -15,6 +15,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\GlobalCalc.DataLayer\GlobalCalc.DataLayer.csproj" />
+    <ProjectReference Include="..\GlobalCalc.Shared\GlobalCalc.Shared.csproj" />
   </ItemGroup>
 
   <ItemGroup>

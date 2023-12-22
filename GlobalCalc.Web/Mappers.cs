@@ -1,7 +1,7 @@
 ﻿using Riok.Mapperly.Abstractions;
 
 using Entities = GlobalCalc.DataLayer.Entities;
-using Models = GlobalCalc.Models;
+using Models = GlobalCalc.Shared;
 
 namespace GlobalCalc.Web
 {

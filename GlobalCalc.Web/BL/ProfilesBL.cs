@@ -11,16 +11,16 @@ namespace GlobalCalc.Web.BL
             _db = db;
         }
 
-        public IEnumerable<Models.Profile> GetProfiles()
+        public IEnumerable<Shared.Profile> GetProfiles()
             => _db.ProfilePositions.GetAll()
             .GroupBy(_ => _.Profile.Id)
             .Select(group =>
             {
-                Models.Profile profile = new ProfileMapper().ToModel(group.First().Profile);
+                Shared.Profile profile = new ProfileMapper().ToModel(group.First().Profile);
                 profile.Colors = group
                     .Select(pp =>
                     {
-                        Models.ProfileColor profileColor = new ProfileColorMapper().ToModel(pp.Color);
+                        Shared.ProfileColor profileColor = new ProfileColorMapper().ToModel(pp.Color);
                         profileColor.Price = pp.Price;
                         return profileColor;
                     })

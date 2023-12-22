@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
-using GlobalCalc.Models;
+using GlobalCalc.Shared;
 using GlobalCalc.DataLayer;
 using GlobalCalc.Web.BL;
 

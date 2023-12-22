@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GlobalCalc.Web", "GlobalCal
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GlobalCalc.DataLayer", "GlobalCalc.DataLayer\GlobalCalc.DataLayer.csproj", "{14774406-295B-4686-8E87-E3C31DF0EAAC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GlobalCalc.Shared", "GlobalCalc.Shared\GlobalCalc.Shared.csproj", "{443C2D76-4B8D-454F-B3F7-2384BC1F6ED4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +26,9 @@ Global
 		{14774406-295B-4686-8E87-E3C31DF0EAAC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{14774406-295B-4686-8E87-E3C31DF0EAAC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{14774406-295B-4686-8E87-E3C31DF0EAAC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{443C2D76-4B8D-454F-B3F7-2384BC1F6ED4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{443C2D76-4B8D-454F-B3F7-2384BC1F6ED4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{443C2D76-4B8D-454F-B3F7-2384BC1F6ED4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{443C2D76-4B8D-454F-B3F7-2384BC1F6ED4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
