@@ -23,8 +23,8 @@ public class ApiController : Controller
         var data = new FacadeData
         {
             WorkPrice = _db.Prices.GetPrice(DataLayer.Types.PriceType.WorkPrice),
-            Screws = _db.Screws.GetAll().Select(_ => new ScrewMapper().ToModel(_)).ToArray(),
-            Millings = _db.Millings.GetAll().Select(_ => new MillingMapper().ToModel(_)).ToArray(),
+            Screws = _db.Screws.GetAll().Select(_ => ScrewMapper.ToModel(_)).ToArray(),
+            Millings = _db.Millings.GetAll().Select(_ => MillingMapper.ToModel(_)).ToArray(),
         };
         var profilesBL = new ProfilesBL(_db);
         data.Profiles = profilesBL.GetProfiles().ToArray();

@@ -1,4 +1,5 @@
-﻿using System.Security.Cryptography;
+﻿using Microsoft.Extensions.Primitives;
+using System.Security.Cryptography;
 using System.Text;
 
 namespace GlobalCalc.Web.Services
@@ -12,6 +13,24 @@ namespace GlobalCalc.Web.Services
             _adminToken = configuration["Authentication:AdminToken"];
         }
 
+        public bool Validate(HttpContext httpContext, out string? authorizationMethod)
+        {
+            authorizationMethod = null;
+            string? accessToken = null;
+            if (httpContext.Request.Headers.TryGetValue("Authorization", out StringValues headerValue))
+            {
+                accessToken = headerValue.ToString();
+                authorizationMethod = "Header";
+            }
+            else if (httpContext.Request.Cookies.TryGetValue("access_token", out string? cookieValue))
+            {
+                accessToken = cookieValue;
+                authorizationMethod = "Cookie";
+            }
+
+            return accessToken == _adminToken;
+        }
+
         public bool Login(string login, string password, IResponseCookies cookies)
         {
             string userToken = GetToken(login, password);
@@ -22,13 +41,9 @@ namespace GlobalCalc.Web.Services
             return true;
         }
 
-        public bool Authenticate(IRequestCookieCollection cookies)
-            => cookies.TryGetValue("access_token", out string? accessToken)
-                && accessToken == _adminToken;
-
         private void SetCookies(IResponseCookies cookies, string token)
         {
-            cookies.Append("access_token", token, new CookieOptions { Expires = DateTime.Now.AddDays(1) });
+            cookies.Append("access_token", token, new CookieOptions { Expires = DateTime.Now.AddDays(6) });
         }
 
         private static string GetToken(string login, string password)

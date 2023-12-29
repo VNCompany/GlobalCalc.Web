@@ -6,26 +6,26 @@ using Models = GlobalCalc.Shared;
 namespace GlobalCalc.Web
 {
     [Mapper]
-    public partial class ScrewMapper
+    public static partial class ScrewMapper
     {
-        public partial Models.Screw ToModel(Entities.Screw entity);
+        public static partial Models.Screw ToModel(Entities.Screw entity);
     }
 
     [Mapper]
-    public partial class MillingMapper
+    public static partial class MillingMapper
     {
-        public partial Models.Milling ToModel(Entities.Milling entity);
+        public static partial Models.Milling ToModel(Entities.Milling entity);
     }
 
     [Mapper]
-    public partial class ProfileMapper
+    public static partial class ProfileMapper
     {
-        public partial Models.Profile ToModel(Entities.Profile entity);
+        public static partial Models.Profile ToModel(Entities.Profile entity);
     }
 
     [Mapper]
-    public partial class ProfileColorMapper
+    public static partial class ProfileColorMapper
     {
-        public partial Models.ProfileColor ToModel(Entities.ProfileColor entity);
+        public static partial Models.ProfileColor ToModel(Entities.ProfileColor entity);
     }
 }

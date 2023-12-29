@@ -1,3 +1,4 @@
+using GlobalCalc.Web.Middleware;
 using GlobalCalc.DataLayer;
 
 namespace GlobalCalc.Web
@@ -17,6 +18,7 @@ namespace GlobalCalc.Web
             builder.Services.AddScoped<DataContext>();
 
             var app = builder.Build();
+            app.UseMiddleware<AuthorizationMiddleware>();
             app.UseStaticFiles();
             app.UseRouting();
             app.UseEndpoints(endpoint =>

@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
 using GlobalCalc.Web.Services;
+using GlobalCalc.Web.Attributes;
 
 namespace GlobalCalc.Web.Controllers;
 
@@ -15,19 +16,16 @@ public class AdminController : Controller
         _auth = auth;
     }
 
+    [AdminAuthorize]
     public IActionResult Index()
     {
-        if (!_auth.Authenticate(Request.Cookies)) return OnAuthenticateFailed();
-
-        return Ok("Main page");
+        return Ok("Hello World!");
     }
 
     public string Hi() => "Hello world!";
 
     public IActionResult Login(string? login, string? password)
     {
-        if (_auth.Authenticate(Request.Cookies)) return RedirectToAction(nameof(Index));
-
         if (login == null || password == null)
             return View();
 
@@ -39,6 +37,4 @@ public class AdminController : Controller
 
         return RedirectToAction(nameof(Index));
     }
-
-    protected IActionResult OnAuthenticateFailed() => RedirectToAction(nameof(Login));
 }
